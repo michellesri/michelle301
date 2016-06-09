@@ -43,6 +43,7 @@ function modalContent(preview, githubLink) {
   this.githubLink = githubLink;
 }
 
+// pass a screenshot and gitub link
 var github = new modalContent();
 
 // append conetnt into dialog box
