@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handlebars Template</title>
+  <script id="hello" type="text/x-handlebars-template">
+    Hello {{who}}, my name is {{name}}, and I like {{what}}
+  </script>
+  <!-- script with type text instead of javascript -->
+</head>
+<body>
+  <div id="app"></div>
+  <!-- div with app id -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+  <!-- jquery library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+  <!-- handlebars script -->
+  <script>
+  // object with three key value pairs
+    var data = {
+      who: "Students",
+      name: "Ivan",
+      what: "Apples"
+    };
+    var appTemplate = $('#hello').html()
+    // create a variable and set it to the text inside of the tag with id hello.
+
+    var compiledTemplate = Handlebars.compile(appTemplate);
+    // use the handlebars template method 'compile' to put the sentence together.
+    var html = compiledTemplate(data);
+    // adding the data to the compiledTempate
+    $('#app').append(html);
+    // append the newly formed sentence to the element with id app
+  </script>
+
+</body>
+</html>

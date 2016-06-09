@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handlebars Template</title>
+  <link rel="stylesheet" type="text/css" href="style-for-05.css">
+<!-- css stylesheet -->
+  <script id="hello" type="text/x-handlebars-template">
+    <!-- type is using the handlebars template -->
+    Hello {{who}}, my name is {{name}}, and I like {{what}}
+    <p><br></p>
+    <p><span class='label'>Double (i.e., escaped): </span> {{puppy_double}}</p>
+    <!-- span with a expression -->
+    <p><span class='label'>Triple (i.e., renders HTML):</span> {{{puppy_triple}}}</p>
+    <!-- another span with a expression -->
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <!-- div with id 'app' -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+  <!-- script to use jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+  <script>
+  // script to use handlebars
+  // object with key value pairs.
+    var data = {
+      who: "Students",
+      name: "Ivan",
+      what: "Apples",
+      puppy_double: "Here is bold text: <b>I'm bold!</b><br>",
+      // prints out the <b>
+      puppy_triple: "Here is bold text: <b>I'm bold!</b><br>",
+      // doesn't print out the <b>
+    };
+    var appTemplate = $('#hello').html()
+    // create a variable and set it to the text inside of the tag with id hello.
+
+    var compiledTemplate = Handlebars.compile(appTemplate);
+    // use handlebars to compile the sentence
+    var html = compiledTemplate(data);
+    // compile the sentence with the data from the data object
+    $('#app').append(html);
+    // append the sentence text to the element with id app
+  </script>
+
+</body>
+</html>

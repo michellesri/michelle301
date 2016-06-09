@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Minimal jQuery Template with Regex</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+<!-- script tag that lets you use jquery -->
+  <script id="hello" type="text/template">
+    <!-- type is text and not javascript -->
+    Hello {{0}}, my name is {{1}}, and I like {{2}}
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <!-- div with id app -->
+  <script>
+    var compile = function(template, expressions) {
+      // creating a function that takes in template and expressions as parameters
+      return appTemplate.replace(/{{(\d+)}}/g, swapper);
+      // look for the regular expression with more than one digit and look for all of them globally. pass the thing that's found (number) into the swapper function in place of the number parameter.
+      function swapper(match, number) {
+        // create a function called swapper and pass in match and number as parameters
+        return expressions[number];
+        // returns the result of the swapper function
+      };
+    };
+    var appTemplate = $('#hello').html()
+    // create a variable and set it to the text inside of the tag with id hello.
+    var compiledTemplate = compile(appTemplate, ["Students", "Ivan", "Apples"]);
+    // take the return of the compile function and put it into a variable
+
+
+    $('#app').append(compiledTemplate);
+    // append the the return value of the compile function to the div with id app.
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Minimal jQuery Template with words</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+<!-- jquery library -->
+  <script id="hello" type="text/template">
+<!-- type is text not javascript -->
+    Hello {{who}}, my name is {{name}}, and I like {{what}}
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <!-- div with id app -->
+  <script>
+  // create an object with key value pairs
+    var data = {
+      who: "Students",
+      name: "Ivan",
+      what: "Apples"
+    };
+    var compile = function(template, expressions) {
+      // create a function that takes in two parameters
+      return appTemplate.replace(/{{([A-Za-z]+)}}/g, swapper);
+      // look for the regular expression containing things in between a-z, uppercase and lowercase, (inclusive) and look for all of them globally. pass the thing that's found (letter/words) into the swapper function in place of the number parameter.
+      function swapper(match, capture) {
+        // create a swapper function that takes in two parameters
+        return expressions[capture];
+        // return the thing that's found. in this case, 'who' or 'name' or 'what'
+      };
+    };
+    var appTemplate = $('#hello').html()
+    // create a variable and set it to the text inside of the tag with id hello.
+
+    var compiledTemplate = compile(appTemplate, data);
+    // take the return of the compile function and put it into a variable
+
+    $('#app').append(compiledTemplate);
+    // append the the return value of the compile function to the div with id app.
+
+  </script>
+
+</body>
+</html>
