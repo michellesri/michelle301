@@ -30,18 +30,14 @@
 //   </div>
 
 // this is broken because when you call it twice, it's appending weirdly
+// use handlebars instead.
+// use article.js
 function createModal() {
   var $modalDiv = $('.modalDiv').clone();
-  $('.modalDiv').append($($modalDiv));
+  $('.container').append($($modalDiv));
 }
 
 createModal();
-
-// trying to object construct content
-function modalContent(preview, githubLink) {
-  this.preview = preview,
-  this.githubLink = githubLink;
-}
 
 // pass a screenshot and gitub link
 var github = new modalContent();
