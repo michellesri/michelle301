@@ -1,0 +1,44 @@
+Plain text<br>
+_italics text_
+_adding more text that's italicized_
+
+**I AM BOLD**
+
+<span style="color:red; padding:2px;">RRR</span>
+<span style="color:green; padding:2px; display:inline-block; border:1px green solid">GGG</span>
+<span style="color:blue; padding:2px">BBB</span>
+
+    // For automatic synatx highlighting:
+    //   1. Write a code block
+    //   2. Put an empty line above the block
+    //   3. Indent the block by four spaces.
+
+    // Example code block:
+    function render() {
+      var bodVal = tBody.val(); // Raw article markup
+      var m = marked(bodVal); // Convert markup to html
+      $(m).filter('pre').each(function(i, block) { hljs.highlightBlock(block); });
+    }
+
+
+    var sum = function(a,b) {
+        return a + b
+
+
+
+
+    }
+
+
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+
+Unordered list:
+* Protein
+* Fiber
+- beer
+- wine
