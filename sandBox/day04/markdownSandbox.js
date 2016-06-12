@@ -25,4 +25,11 @@ $(function(){
   }
   // when someone does the input event inside of the textarea with id of input, call the render function.
   $input.on('input', render);
+  //
+  $('button').on('click', function(){
+    // $('.textBox').append($output.html(m));
+    // $('.textBox').append(render());
+    $output.html('sao');
+    render();
+  });
 });
