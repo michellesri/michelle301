@@ -1,3 +1,4 @@
+
 var projects = [];
 
 function Project(activity) {
@@ -32,3 +33,14 @@ $('.projects').remove();
 // trying to create a new project and have it appear on the page, but it is not working
 var swimming = new Project('water','pool','5 years','swimsuit');
 projectData.push(swimming);
+
+function handleMainNav() {
+  $('.main-nav').on('click', '.tab', function(e){
+    $('.tab-content').hide();
+    $('#' + $(this).data('content')).fadeIn();
+  });
+  $('.main-nav .tab:first').click();
+
+}
+
+handleMainNav();
