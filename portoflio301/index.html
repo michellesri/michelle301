@@ -9,7 +9,7 @@
   <body>
 
 
-    <section class="container">
+    <section class="BioContainer">
         <div id="bioPicCont" class="picture">
           <!-- the modal is not working. it is not sizing correctly when it opens -->
           <div class='modalDiv'>
@@ -21,8 +21,6 @@
             </div>
         </div>
       </div>
-
-
         </div>
         <div class="headerText">
           <div class="nameCont">
@@ -31,16 +29,28 @@
         </div>
       </section>
 
-      <section class="container">
+      <section class="navContainer">
         <div class="listCont">
-            <nav>
+            <nav class="main-nav">
             <ul>
+              <li a href='#' id='homeNav' class="tab"><a>home list item</a></li>
+              <li a href= '#' id='aboutNav' class="tab"><a>about list item</a></li>
               <li><a href="https://www.flickr.com/photos/michellesri">Flickr</a></li>
               <li><a href="https://www.facebook.com/michelle.sri10">Facebook</a></li>
               <li><a href="https://github.com/michellesri/">GitHub</a></li>
               <li><a href="https://www.linkedin.com/in/michellesri">LinkedIn</a></li>
             </ul>
           </nav>
+
+          <div class="listCont">
+            <ul id="filters">
+              <li>
+                <select id="author-filter">
+                  <option value-"">-- Filter by Authors --</option>
+                </select>
+              </li>
+
+
         </div>
         <!-- commented out hamburger nav bar. not sure if required. -->
         <!-- <div id="navCont">
@@ -48,6 +58,21 @@
             <img id="navPic" src="images/hamburgerMenu.png" alt="icon">Menu</a>
           </div> -->
       </section>
+
+      <section class="container">
+        <div id='home'class="homeCont">
+          <h3>Home</h3>
+          <p>welcome to my home page!</p>
+        </div>
+      </section>
+
+      <section class="container">
+        <div id='about' class="aboutCont">
+          <h3>About</h3>
+          <p>Hi, my name is Michelle. I'm a recent PNW transplant originally from the bay area.</p>
+        </div>
+      </section>
+
       <section class="container" id="projectDiv">
         <div class="projects">
           <h3>Project Name</h3>
