@@ -140,3 +140,8 @@ li a:hover {
 .unhidden {
   display: block;
 }
+
+#filters {
+  display: flex;
+  flex-direction: row;
+}
