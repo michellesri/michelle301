@@ -7,6 +7,14 @@
     <title>Michelle Sri</title>
   </head>
   <body>
+    <script id="project-template" type="text/template">
+      <h3>{{name}}</h3>
+      <ul>
+        <li>{{location}}</li>
+        <li>{{experience}}</li>
+        <li>{{gear}}</li>
+      </ul>
+    </script>
 
 
     <section class="BioContainer">
@@ -33,8 +41,11 @@
         <div class="listCont">
             <nav class="main-nav">
             <ul>
-              <li a href='#' id='homeNav' class="tab"><a>home list item</a></li>
-              <li a href= '#' id='aboutNav' class="tab"><a>about list item</a></li>
+              <li id='homeNav'><a href= '#' class="tab" data-content="home">home list item</a></li>
+              <li id='aboutNav'><a href= '#' class="tab" data-content="about">about list item</a></li>
+              <li id='projectNav'><a href= '#' class="tab" data-content="projectsHandle">project LI</a></li>
+              <li id='interestNav'><a href= '#' class="tab" data-content="interests">interests</a></li>
+
               <li><a href="https://www.flickr.com/photos/michellesri">Flickr</a></li>
               <li><a href="https://www.facebook.com/michelle.sri10">Facebook</a></li>
               <li><a href="https://github.com/michellesri/">GitHub</a></li>
@@ -64,6 +75,7 @@
             <img id="navPic" src="images/hamburgerMenu.png" alt="icon">Menu</a>
           </div> -->
       </section>
+      <p id='interests' class='tab-content'>woohooo p tag</p>
 
       <section class="container">
         <div id='home'class="homeCont">
@@ -73,33 +85,25 @@
       </section>
 
       <section class="container">
-        <div id='about' class="aboutCont">
+        <div id='about' class="aboutCont tab-content">
           <h3>About</h3>
           <p>Hi, my name is Michelle. I'm a recent PNW transplant originally from California.</p>
         </div>
       </section>
+      <section id="projectsHandle" class="tab-content">
 
-      <section class="container" id="projectDiv" data-category="bloop">
-        <div class="projects" class"projectsTemp">
-          <h3>Project Name</h3>
-          <ul>
-            <li id="one"></li>
-            <li id="two"></li>
-            <li id="three"></li>
-          </ul>
-        </div>
       </section>
 
 
 
 
 
-
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <script src='data.js'></script>
     <script src='app.js'></script>
+    <script src='interact.js'></script>
+
   </body>
 </html>
 
