@@ -3,15 +3,15 @@ var projects = [];
 
 var articleView = {};
 
-function Project(name, location, experience, gear) {
-  this.name = name;
-  this.location = location;
-  this.experience = experience;
-  this.gear = gear;
+function Project(activity) {
+  this.name = activity.name;
+  this.location = activity.location;
+  this.experience = activity.experience;
+  this.gear = activity.gear;
 }
 
 Project.prototype.toHtml = function(){
-  var $newProject = $('.projects').clone();
+  var $newProject = $('.projects').clone().attr('data-experience', this.experience).attr('data-location', this.location).attr('class', 'projectClass');
   $newProject.removeClass('projects');
   $newProject.find('h2').text(this.name);
   $newProject.find('#one').text(this.location);
@@ -32,11 +32,6 @@ projects.forEach(function(a){
 
 // $('.projects').remove();
 
-// trying to create a new project and have it appear on the page, but it is not working
-var swimming = new Project('swim','pool','5 years','swimsuit');
-console.log(swimming);
-projectData.push(swimming);
-
 articleView.populateFilters = function() {
   for (var i = 0; i < projectData.length; i++){
     var experience = projectData[i].experience;
@@ -53,20 +48,43 @@ articleView.populateFilters = function() {
   };
 };
 
-articleView.populateFilters();
-
-articleView.handleAuthorFilter = function() {
+articleView.handleExperienceFilter = function() {
   $('#filter1').on('change', function() {
+
     if ($(this).val()) {
-      $('article').hide();
-      $('article[data-author="' + $(this).val() + '"]').fadeIn();
-    } else {
-      $('article').fadeIn();
-      $('article.template').hide();
+      var thisVal = $(this).val();
+      var experienceData = $('[data-experience="' + thisVal + '"]');
+      $('.projectClass').not(experienceData).hide();
+      experienceData.show();
     }
-    $('#category-filter').val('');
+    // else {
+    //   $('article').fadeIn();
+    //   $('article.template').hide();
+    // }
+    // not sure why this else statement is here (it came with blog code)
+    $('#filter2').val('');
   });
 };
+$('.projects').hide();
+
+articleView.handleLocationFilter = function(){
+  $('#filter2').on('change', function() {
+
+    if ($(this).val()) {
+      var thisVal = $(this).val();
+      var locationData = $('[data-location="' + thisVal + '"]');
+      $('.projectClass').not(locationData).hide();
+      locationData.show();
+    }
+    $('#filter1').val('');
+  });
+};
+
+$(function(){
+  articleView.populateFilters();
+  articleView.handleLocationFilter();
+  articleView.handleExperienceFilter();
+});
 //
 // function handleMainNav() {
 //   $('.main-nav').on('click', '.tab', function(e){
