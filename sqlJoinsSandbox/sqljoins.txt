@@ -1,0 +1,32 @@
+ 
+SELECT FirstName, LastName, Photo, CustomerID FROM Employees
+INNER JOIN Orders
+ON Employees.EmployeeID = Orders.EmployeeID;
+ 
+ 
+SELECT e.LastName, e.FirstName, o.OrderID, s.ShipperName
+  FROM [Employees] e
+  INNER JOIN [Orders] o
+  ON e.EmployeeID = o.EmployeeID
+  INNER JOIN [Shippers] s
+  ON s.ShipperID = o.ShipperID;
+ 
+ 
+SELECT *
+  FROM games RIGHT JOIN city
+       ON (games.city = city.name)
+ 
+no difference
+ 
+ 
+SELECT *
+  FROM games LEFT JOIN city
+       ON (games.city = city.name)
+UNION
+ 
+ 
+SELECT *
+  FROM games RIGHT JOIN city
+  ON (games.city = city.name);
+ 
+
