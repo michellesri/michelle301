@@ -1,18 +1,18 @@
+(function(module) {
+  Project.all = [];
 
-projects.All = [];
+  var articleView = {};
 
-var articleView = {};
+  function Project(object) {
+    this.name = object.name;
+    this.location = object.location;
+    this.experience = object.experience;
+    this.gear = object.gear;
+  }
 
-function Project(object) {
-  this.name = object.name;
-  this.location = object.location;
-  this.experience = object.experience;
-  this.gear = object.gear;
-}
-
-Project.prototype.toHtml = function(){
-  var template = Handlebars.compile($('#project-template').text());
-  return template(this);
+  Project.prototype.toHtml = function(){
+    var template = Handlebars.compile($('#project-template').text());
+    return template(this);
   // var $newProject = $('.projects').clone();
   // $newProject.removeClass('projects');
   // $newProject.find('h2').text(this.name);
@@ -21,40 +21,44 @@ Project.prototype.toHtml = function(){
   // $newProject.find('#three').text(this.gear);
   // return $newProject;
 
-};
+  };
 
-Project.loadAll = function(projectData) {
-  projectData.forEach(function(ele){
-    Project.all.push(new Project(ele));
-  });
-};
+  Project.loadAll = function(projectData) {
+    projectData.forEach(function(ele){
+      Project.all.push(new Project(ele));
+    });
+  };
 
-Project.fetchAll = function(){
-  if(localStorage.projectData) {
-    var projParse = JSON.parse(localStorage.projectData);
-    Project.loadAll(projParse);
-    articleView.initIndexPage();
-  }
-  else {
-    $.getJSON('data.json').done(myFunction);
-    function myFunction(data) {
-      Project.loadAll(data);
-      localStorage.projectData = JSON.stringify(projects.All);
+  Project.fetchAll = function(){
+    if(localStorage.projectData) {
+      console.log('i am being logged through the local storage if statement');
+
+      var projParse = JSON.parse(localStorage.projectData);
+      Project.loadAll(projParse);
       articleView.initIndexPage();
     }
-  }
-};
+    else {
+      console.log('getjson branch');
 
-articleView.initIndexPage = function() {
-  projects.All.forEach(function(a){
-    $('#projectsHandle').append(a.toHtml());
-  });
-};
+      $.getJSON('data.json').done(myFunction);
+      function myFunction(data) {
+        Project.loadAll(data);
+        localStorage.projectData = JSON.stringify(Project.all);
+        articleView.initIndexPage();
+      }
+    }
+  };
 
-projectData.forEach(function(ele){
-  projects.push(new Project(ele));
-  console.log('i am the projects ' , projects);
-});
+  articleView.initIndexPage = function() {
+    Project.all.forEach(function(a){
+      $('#projectsHandle').append(a.toHtml());
+    });
+  };
+
+  // projectData.forEach(function(ele){
+  //   Project.all.push(new Project(ele));
+  //   console.log('i am the projects ' , Project.all);
+  // });
 
 // var swimming = new Project('swim','pool','5 years','swimsuit');
 // console.log(swimming);
@@ -62,36 +66,38 @@ projectData.forEach(function(ele){
 
 // $('.projects').remove();
 
-articleView.populateFilters = function() {
-  for (var i = 0; i < projectData.length; i++){
-    var experience = projectData[i].experience;
-    var experienceTag = '<option value="' + experience + '" >' + experience + '</option>';
-    if ($('#filter1 option[value="' + experience + '"]').length === 0){
-      $('#filter1').append(experienceTag);
-    }
+  articleView.populateFilters = function() {
+    for (var i = 0; i < projectData.length; i++){
+      var experience = projectData[i].experience;
+      var experienceTag = '<option value="' + experience + '" >' + experience + '</option>';
+      if ($('#filter1 option[value="' + experience + '"]').length === 0){
+        $('#filter1').append(experienceTag);
+      }
 
-    var location = projectData[i].location;
-    var locationTag = '<option value="' + location + '" >' + location + '</option>';
-    if ($('#filter2 option[value="' + location + '"]').length === 0){
-      $('#filter2').append(locationTag);
-    }
+      var location = projectData[i].location;
+      var locationTag = '<option value="' + location + '" >' + location + '</option>';
+      if ($('#filter2 option[value="' + location + '"]').length === 0){
+        $('#filter2').append(locationTag);
+      }
+    };
   };
-};
 
-articleView.populateFilters();
+  articleView.populateFilters();
 
-articleView.handleAuthorFilter = function() {
-  $('#filter1').on('change', function() {
-    if ($(this).val()) {
-      $('article').hide();
-      $('article[data-author="' + $(this).val() + '"]').fadeIn();
-    } else {
-      $('article').fadeIn();
-      $('article.template').hide();
-    }
-    $('#category-filter').val('');
-  });
-};
+  articleView.handleAuthorFilter = function() {
+    $('#filter1').on('change', function() {
+      if ($(this).val()) {
+        $('article').hide();
+        $('article[data-author="' + $(this).val() + '"]').fadeIn();
+      } else {
+        $('article').fadeIn();
+        $('article.template').hide();
+      }
+      $('#category-filter').val('');
+    });
+  };
+  module.Project = Project;
+})(window);
 
 //
 // function handleMainNav() {
