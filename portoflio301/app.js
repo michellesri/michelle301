@@ -1,5 +1,5 @@
 
-var projects = [];
+projects.All = [];
 
 var articleView = {};
 
@@ -23,6 +23,34 @@ Project.prototype.toHtml = function(){
 
 };
 
+Project.loadAll = function(projectData) {
+  projectData.forEach(function(ele){
+    Project.all.push(new Project(ele));
+  });
+};
+
+Project.fetchAll = function(){
+  if(localStorage.projectData) {
+    var projParse = JSON.parse(localStorage.projectData);
+    Project.loadAll(projParse);
+    articleView.initIndexPage();
+  }
+  else {
+    $.getJSON('data.json').done(myFunction);
+    function myFunction(data) {
+      Project.loadAll(data);
+      localStorage.projectData = JSON.stringify(projects.All);
+      articleView.initIndexPage();
+    }
+  }
+};
+
+articleView.initIndexPage = function() {
+  projects.All.forEach(function(a){
+    $('#projectsHandle').append(a.toHtml());
+  });
+};
+
 projectData.forEach(function(ele){
   projects.push(new Project(ele));
   console.log('i am the projects ' , projects);
@@ -31,11 +59,6 @@ projectData.forEach(function(ele){
 // var swimming = new Project('swim','pool','5 years','swimsuit');
 // console.log(swimming);
 // projects.push(swimming);
-
-projects.forEach(function(a){
-  $('#projectsHandle').append(a.toHtml());
-  console.log(a.toHtml());
-});
 
 // $('.projects').remove();
 
