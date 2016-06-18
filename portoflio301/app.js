@@ -66,23 +66,23 @@
 
 // $('.projects').remove();
 
-  articleView.populateFilters = function() {
-    for (var i = 0; i < projectData.length; i++){
-      var experience = projectData[i].experience;
-      var experienceTag = '<option value="' + experience + '" >' + experience + '</option>';
-      if ($('#filter1 option[value="' + experience + '"]').length === 0){
-        $('#filter1').append(experienceTag);
-      }
+  // articleView.populateFilters = function() {
+  //   for (var i = 0; i < projectData.length; i++){
+  //     var experience = projectData[i].experience;
+  //     var experienceTag = '<option value="' + experience + '" >' + experience + '</option>';
+  //     if ($('#filter1 option[value="' + experience + '"]').length === 0){
+  //       $('#filter1').append(experienceTag);
+  //     }
+  //
+  //     var location = projectData[i].location;
+  //     var locationTag = '<option value="' + location + '" >' + location + '</option>';
+  //     if ($('#filter2 option[value="' + location + '"]').length === 0){
+  //       $('#filter2').append(locationTag);
+  //     }
+  //   };
+  // };
 
-      var location = projectData[i].location;
-      var locationTag = '<option value="' + location + '" >' + location + '</option>';
-      if ($('#filter2 option[value="' + location + '"]').length === 0){
-        $('#filter2').append(locationTag);
-      }
-    };
-  };
-
-  articleView.populateFilters();
+  // articleView.populateFilters();
 
   articleView.handleAuthorFilter = function() {
     $('#filter1').on('change', function() {
@@ -97,6 +97,11 @@
     });
   };
   module.Project = Project;
+  var arr = [1,2,3];
+  var x = arr.reduce(function(a,b){
+    return a + b;
+  });
+  console.log(x);
 })(window);
 
 //
