@@ -24,8 +24,8 @@
   };
 
   Project.loadAll = function(projectData) {
-    projectData.forEach(function(ele){
-      Project.all.push(new Project(ele));
+    Project.all = projectData.map(function(ele){
+      return new Project(ele);
     });
   };
 
