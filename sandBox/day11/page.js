@@ -230,7 +230,6 @@
       }
     };
 
-
   /**
    * Register route to redirect from one path to other
    * or just redirect to another route
