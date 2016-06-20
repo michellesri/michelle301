@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mini-app: page.js demo</title>
+    <script src="/page.js"></script>
+    <base href="/" >
+    <script id="handle-template" type="text/x-handlebars-template">
+      <h4>{{title}}</h4>
+      <h4>{{author}}</h4>
+      <div>{{{body}}}</div>
+    </script>
+
+  </head>
+  <body>
+    <h1>Mini-app: page.js demo</h1>
+    <h2>i am h2</h2>
+    <h3>i am h3</h3>
+    <nav>
+      <ul>
+        <li><a href="">home</a></li>
+        <li><a href="/">/</a></li>
+        <li><a href="about">/about</a></li>
+        <li><a href="contact">/contact</a></li>
+        <li><a href="contact/me">/contact/me</a></li>
+        <li><a href="contact/you">/contact/you</a></li>
+        <li><a href="#whoop">#whoop</a></li>
+        <li><a href="article">article</a></li>
+
+        <li><a href="not-found?foo=bar">/not-found</a></li>
+      </ul>
+  </nav>
+  <section id='handleAppend'></section>
+
+    <p></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="/vendor/scripts/jquery-2.1.4.js"></script>
+    <script src="/vendor/scripts/handlebars.js"></script>
+    <script src="/vendor/scripts/marked.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
