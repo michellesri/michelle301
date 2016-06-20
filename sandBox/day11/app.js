@@ -1,10 +1,11 @@
 var $p = $('p');
 var $h2 = $('h2');
 var $h3 = $('h3');
+var $handleAppend = $('#handleAppend');
 
 function initIndexPage(){
   Article.all.forEach(function(a){
-    $('#handleAppend').append(a.toMark());
+    $handleAppend.append(a.toMark());
   });
 };
 
@@ -59,6 +60,7 @@ function notfound() {
               + location.hostname + location.pathname + location.search
               + '" can\'t be found (like a bridge over troubled water, ya\' know)!</p>'
               + '<img src="lost.jpg"></img>');
+  div.hide();
 }
 
 setRouteMappings();
