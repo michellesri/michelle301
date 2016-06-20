@@ -6,6 +6,9 @@ var $handleAppend = $('#handleAppend');
 function initIndexPage(){
   Article.all.forEach(function(a){
     $handleAppend.append(a.toMark());
+    $handleAppend.find('pre code').each(function(i, block){
+      hljs.highlightBlock(block);
+    });
   });
 };
 
@@ -85,3 +88,5 @@ var fetchAll = function(){
 };
 
 fetchAll();
+
+hljs.initHighlightingOnLoad();
