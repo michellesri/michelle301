@@ -97,6 +97,7 @@
     });
   };
   module.Project = Project;
+  module.articleView = articleView;
   var arr = [1,2,3];
   var x = arr.reduce(function(a,b){
     return a + b;

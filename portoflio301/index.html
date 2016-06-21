@@ -44,9 +44,9 @@
         <div class="listCont">
             <nav class="main-nav">
             <ul>
-              <li id='homeNav'><a href= '#' class="tab" data-content="home">home list item</a></li>
-              <li id='aboutNav'><a href= '#' class="tab" data-content="about">about list item</a></li>
-              <li id='projectNav'><a href= '#' class="tab" data-content="projectsHandle">project LI</a></li>
+              <li id='homeNav'><a href= '/home' class="tab" data-content="home">home list item</a></li>
+              <li id='aboutNav'><a href= '/about' class="tab" data-content="about">about list item</a></li>
+              <li id='projectNav'><a href= '/projects' class="tab" data-content="projectsHandle">project LI</a></li>
               <li id='interestNav'><a href= '#' class="tab" data-content="interests">interests</a></li>
 
               <li><a href="https://www.flickr.com/photos/michellesri">Flickr</a></li>
@@ -97,22 +97,24 @@
 
       </section>
 
+      <script src="/vendor/scripts/jquery-2.1.4.js"></script>
+      <script src="/vendor/scripts/page.js"></script>
+      <script src="/vendor/scripts/handlebars.js"></script>
+      <script src="/vendor/scripts/marked.js"></script>
+      <script src="/vendor/scripts/html5sql.js"></script>
 
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <!-- <script src='data.js'></script> -->
     <script src='app.js'></script>
-    <script src='interact.js'></script>
-    <script>Project.fetchAll();</script>
+    <script src='data.json'></script>
+
+    <script src='homeController.js'></script>
+    <script src='projectController.js'></script>
+    <script src='aboutController.js'></script>
+    <script src='routes.js'></script>
+
+
   </body>
 </html>
 
-
-<!-- <ul>
-  <li><a href='https://www.facebook.com/michelle.sri10'>facebook</a></li>
-  <li><a href='https://github.com/michellesri/'>github</a></li>
-  <li><a href='https://www.linkedin.com/in/michellesri'>linkedin</a></li>
-</ul> -->
+<!-- commented out interact.js because we are using controller instead -->
+<!-- <script src='interact.js'></script> -->
