@@ -6,6 +6,8 @@
     $('#home').hide();
     $('#about').show();
 
+    console.log('calling repos.requestRepos');
+    repos.requestRepos(repoView.index);
   };
 
   module.aboutController = aboutController;
