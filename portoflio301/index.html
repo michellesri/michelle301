@@ -19,6 +19,20 @@
       </ul>
     </script>
 
+    <!-- this is the template for the repository -->
+
+    <script id="repo-template" type="text/x-handlebars-template">
+      <li>
+        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+        <p>Description: {{description}}</p>
+        <p>Language {{language}}</p>
+        <p>Created: {{created_at}}</p>
+        <p>Laster updated: {{updated_at}}</p>
+        {{#if watchers_count}}
+        <p>{{watchers_count}} watching this repo</p>
+        {{/if}}
+      </li>
+    </script>
 
     <section class="BioContainer">
         <div id="bioPicCont" class="picture">
@@ -96,6 +110,17 @@
       <section id="projectsHandle" class="tab-content">
 
       </section>
+      <section id="gitAbout" class="tab-content">
+        <header>
+          welcome to my blog!
+        </header>
+        <section>
+          <h1>check out my projects on github:</h1>
+          <ul>
+            <li>coding</li>
+          </ul>
+        </section>
+      </section>
 
       <script src="/vendor/scripts/jquery-2.1.4.js"></script>
       <script src="/vendor/scripts/page.js"></script>
@@ -104,15 +129,18 @@
       <script src="/vendor/scripts/html5sql.js"></script>
 
     <!-- <script src='data.js'></script> -->
-    <script src='app.js'></script>
+
+
     <script src='data.json'></script>
+    <script type="text/javascript" src="githubToken.js"></script>
+    <script type="text/javascript" src='app.js'></script>
+    <script type="text/javascript" src="repoView.js"></script>
+    <script type="text/javascript" src="repo.js"></script>
+    <script type="text/javascript" src='homeController.js'></script>
+    <script type="text/javascript" src='aboutController.js'></script>
 
-    <script src='homeController.js'></script>
     <script src='projectController.js'></script>
-    <script src='aboutController.js'></script>
     <script src='routes.js'></script>
-
-
   </body>
 </html>
 

@@ -5,6 +5,7 @@
     $('#about').hide();
     $('#home').show();
     $('#projectsHandle').hide();
+    $('#gitAbout').hide();
 
   };
 

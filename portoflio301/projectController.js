@@ -6,6 +6,7 @@
     $('#about').hide();
     $('#home').hide();
     $('#projectsHandle').show();
+    $('#gitAbout').hide();
   };
 
   module.projectController = projectController;
